@@ -26,6 +26,8 @@ def convert_result_file_names(result_dir_path):
     assert os.path.exists(result_dir_path)
     file_names = os.listdir(result_dir_path)
     for file_name in file_names:
+        if file_name.find("toy") < 0:
+            continue
         file_name_tokens = file_name.split('_')
         token_counts = len(file_name_tokens)
         if token_counts <= 0:
@@ -193,7 +195,7 @@ def batch_all_results(result_file_abs_dir):
 
 
 if __name__ == "__main__":
-    toy_result_dir_abs_path = r"C:\Users\wangr\Desktop\m\manuscripts\PAPER-SEQTTEST\实验结果\toy"
-    batch_all_results(toy_result_dir_abs_path)
+    toy_result_dir_abs_path = r"D:\temp"
+    convert_result_file_names(toy_result_dir_abs_path)
     pass
 
